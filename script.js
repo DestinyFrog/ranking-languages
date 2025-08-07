@@ -12,11 +12,17 @@
 
     const linguagens_options = document.getElementById('linguagens-options')
 
+    function capitalize(str) {
+        if (!str || typeof str !== 'string') return '';
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    }
+
     function createLinguagemElement({ name, path }) {
         const img = document.createElement('img')
         img.className = 'rank-item'
         img.src = path
         img.alt = `logo de ${name}`
+        img.title = capitalize(name)
         return img
     }
 

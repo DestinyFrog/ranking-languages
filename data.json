@@ -4,7 +4,7 @@
         "path": "./assets/linguagens_programacao/bash.svg"
     },
     {
-        "name": "c",
+        "name": "C",
         "path": "./assets/linguagens_programacao/c.svg"
     },
     {
@@ -16,7 +16,7 @@
         "path": "./assets/linguagens_programacao/coffeescript.svg"
     },
     {
-        "name": "cpp",
+        "name": "C++",
         "path": "./assets/linguagens_programacao/cpp.svg"
     },
     {
@@ -24,7 +24,7 @@
         "path": "./assets/linguagens_programacao/crystal.svg"
     },
     {
-        "name": "csharp",
+        "name": "c#",
         "path": "./assets/linguagens_programacao/csharp.svg"
     },
     {
@@ -100,7 +100,7 @@
         "path": "./assets/linguagens_programacao/python.svg"
     },
     {
-        "name": "r",
+        "name": "R",
         "path": "./assets/linguagens_programacao/r.svg"
     },
     {
