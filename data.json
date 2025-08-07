@@ -1,0 +1,130 @@
+[
+    {
+        "name": "bash",
+        "path": "./assets/linguagens_programacao/bash.svg"
+    },
+    {
+        "name": "c",
+        "path": "./assets/linguagens_programacao/c.svg"
+    },
+    {
+        "name": "cobol",
+        "path": "./assets/linguagens_programacao/cobol.svg"
+    },
+    {
+        "name": "coffeescript",
+        "path": "./assets/linguagens_programacao/coffeescript.svg"
+    },
+    {
+        "name": "cpp",
+        "path": "./assets/linguagens_programacao/cpp.svg"
+    },
+    {
+        "name": "crystal",
+        "path": "./assets/linguagens_programacao/crystal.svg"
+    },
+    {
+        "name": "csharp",
+        "path": "./assets/linguagens_programacao/csharp.svg"
+    },
+    {
+        "name": "dart",
+        "path": "./assets/linguagens_programacao/dart.svg"
+    },
+    {
+        "name": "elixir",
+        "path": "./assets/linguagens_programacao/elixir.svg"
+    },
+    {
+        "name": "fortran",
+        "path": "./assets/linguagens_programacao/fortran.svg"
+    },
+    {
+        "name": "gleam",
+        "path": "./assets/linguagens_programacao/gleam.svg.png"
+    },
+    {
+        "name": "go",
+        "path": "./assets/linguagens_programacao/go.svg"
+    },
+    {
+        "name": "haskell",
+        "path": "./assets/linguagens_programacao/haskell.svg"
+    },
+    {
+        "name": "haxe",
+        "path": "./assets/linguagens_programacao/haxe.svg"
+    },
+    {
+        "name": "java",
+        "path": "./assets/linguagens_programacao/java.svg"
+    },
+    {
+        "name": "javascript",
+        "path": "./assets/linguagens_programacao/javascript.svg"
+    },
+    {
+        "name": "julia",
+        "path": "./assets/linguagens_programacao/julia.svg"
+    },
+    {
+        "name": "kotlin",
+        "path": "./assets/linguagens_programacao/kotlin.svg"
+    },
+    {
+        "name": "lisp",
+        "path": "./assets/linguagens_programacao/lisp.svg"
+    },
+    {
+        "name": "lua",
+        "path": "./assets/linguagens_programacao/lua.svg"
+    },
+    {
+        "name": "matlab",
+        "path": "./assets/linguagens_programacao/matlab.svg"
+    },
+    {
+        "name": "nim",
+        "path": "./assets/linguagens_programacao/nim.svg"
+    },
+    {
+        "name": "perl",
+        "path": "./assets/linguagens_programacao/perl.svg"
+    },
+    {
+        "name": "php",
+        "path": "./assets/linguagens_programacao/php.svg"
+    },
+    {
+        "name": "python",
+        "path": "./assets/linguagens_programacao/python.svg"
+    },
+    {
+        "name": "r",
+        "path": "./assets/linguagens_programacao/r.svg"
+    },
+    {
+        "name": "racket",
+        "path": "./assets/linguagens_programacao/racket.svg"
+    },
+    {
+        "name": "ruby",
+        "path": "./assets/linguagens_programacao/ruby.svg"
+    },
+    {
+        "name": "rust",
+        "path": "./assets/linguagens_programacao/rust.svg"
+    },
+    {
+        "name": "swift",
+        "path": "./assets/linguagens_programacao/swift.svg"
+    },
+    {
+        "name": "typescript",
+        "path": "./assets/linguagens_programacao/typescript.svg"
+    },
+    {
+        "name": "zig",
+        "path": "./assets/linguagens_programacao/zig.svg"
+    }
+]
