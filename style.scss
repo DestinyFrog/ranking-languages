@@ -9,33 +9,55 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-color: #262133;
-}
-
-img {
-    width: 100%;
-    height: 100%;
+    background: linear-gradient(to bottom, #597f89, #851717);
 }
 
 .rank {
     list-style: none;
-    max-height: 100%;
     overflow-y: scroll;
-    background-color: #6d648a;
-    border-right: 2px solid #49435d;
+    background-color: #262133;
 }
 
 .rank-item {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+
+    width: min-content;
     margin: 4px;
-    padding: 4px;
-    background-color: #49435d;
+    background-color: black;
     border-radius: 3px;
     user-select: none;
+    
+    text-align: center;
+    overflow: hidden;
+    
+    .icon {
+        object-fit: contain;
+        width: auto;
+        height: 60px;
+        margin: 4px;
+        margin-top: 0;
+        padding: 4px;
+        background-color: white;
+        border-radius: 3px;
+    }
+
+    .title {
+        width: 100%;
+        color: white;
+        background-color: inherit;
+        padding: 4px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 16px;
+        text-wrap: nowrap;
+    }
 }
 
-.draggable {
-    position: fixed;
+.selected {
+    position: absolute;
+    z-index: 1;
+}
+
+.dragging {
+    cursor: grabbing;
 }

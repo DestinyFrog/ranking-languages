@@ -126,5 +126,10 @@
     {
         "name": "zig",
         "path": "./assets/linguagens_programacao/zig.svg"
+    },
+    {
+        "name": "tenda 🇧🇷",
+        "path": "./assets/linguagens_programacao/tenda.svg",
+        "link": "https://tenda.dev/"
     }
 ]

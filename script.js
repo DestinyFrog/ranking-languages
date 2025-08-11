@@ -2,6 +2,8 @@
 (async () => {
     let linguagens = []
 
+    let linguagensScore = {}
+
     try {
         const res = await fetch("./data.json")
         linguagens = await res.json()
@@ -12,13 +14,30 @@
 
     const linguagens_options = document.getElementById('linguagens-options')
 
-    linguagens.forEach(({ name, path }) => {
+    linguagens.forEach(({ name, path, link }) => {
         const li = document.createElement('li')
         li.className = 'rank-item'
-        implementDragAndDrop(li)
+
+        const onStopDrag = (ev) => {
+            linguagensScore[name] = ev.clientY
+            console.log(linguagensScore)
+        }
+
+        implementDragAndDrop(li, onStopDrag)
+
+        const a = document.createElement('a')
+        a.className = 'title'
+        a.target = '_blank'
+        a.textContent = capitalize(name)
+        if (link) {
+            a.href = link
+        }
+        li.appendChild(a)
 
         const img = document.createElement('img')
+        img.className = 'icon'
         img.src = path
+        img.draggable = false
         img.alt = `logo de ${name}`
         img.title = capitalize(name)
         li.appendChild(img)
@@ -26,34 +45,61 @@
         linguagens_options.appendChild(li)
     })
 
+    let last_z_index = 1
+
     /**
      * @param {HTMLElement} element 
      */
-    function implementDragAndDrop(element) {
-        let offset = { x: 0, y: 0 }
+    function implementDragAndDrop(element, onStopDrag) {
+        let offset = { x: 0, y: 0 };
+        let isDragging = false;
+
+        element.style.cursor = 'grab';
+
+        element.addEventListener('mousedown', startDrag);
         
-        function mouseMove(ev) {
-            if (ev.clientX > 0 && ev.clientX < document.body.clientWidth) {
-                element.style.left = `${ev.clientX - offset.x}px`	
-            }
+        element.addEventListener('touchstart', startDrag);
 
-            if (ev.clientY > 0 && ev.clientY < document.body.clientHeight) {
-                element.style.top = `${ev.clientY - offset.y}px`
-            }
+        function startDrag(ev) {
+            last_z_index++
+            element.style.zIndex = last_z_index
+            isDragging = true;
+            
+            offset.x = ev.clientX - element.getBoundingClientRect().left;
+            offset.y = ev.clientY - element.getBoundingClientRect().top;
+            
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', stopDrag);
+
+            document.addEventListener('touchmove', drag);
+            document.addEventListener('touchend', stopDrag);
+            
+            ev.preventDefault();
+            element.classList.add('dragging')
         }
 
-        function mouseDown(ev) {
-            offset.x = ev.clientX - element.offsetLeft
-            offset.y = ev.clientY - element.offsetTop
+        function drag(ev) {
+            if (!isDragging) return;
+            
+            element.style.left = `${ev.clientX - offset.x}px`;
+            element.style.top = `${ev.clientY - offset.y - document.body.getBoundingClientRect().top}px`;
 
-            element.classList.add('draggable')
-
-            document.addEventListener('mousemove', mouseMove)
-            document.addEventListener('mouseup', _ =>
-                document.removeEventListener('mousemove', mouseMove))
+            element.classList.add('selected')
         }
 
-        element.addEventListener('mousedown', mouseDown)
+        function stopDrag(ev) {
+            isDragging = false;
+            element.classList.remove('dragging')
+            element.style.cursor = 'grab';
+            
+            document.removeEventListener('mousemove', drag);
+            document.removeEventListener('mouseup', stopDrag);
+
+            document.removeEventListener('touchmove', drag);
+            document.removeEventListener('touchend', stopDrag);
+
+            onStopDrag(ev)
+        }
     }
 
     function capitalize(str) {

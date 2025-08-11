@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- outer yellow square -->
+  <rect x="0" y="0" width="32" height="32" rx="4.57" fill="#eab308"/>
+
+  <!-- inner pretty green shape -->
+  <path d="M 18.29 13.71 H 32 V 27.43 A 4.57 4.57 0 0 1 27.43 32 H 13.71 V 18.29 A 4.57 4.57 0 0 1 18.29 13.71 Z" fill="#047857"/>
+</svg>
