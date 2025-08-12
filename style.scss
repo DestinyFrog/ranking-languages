@@ -1,63 +1,140 @@
+// Variables
+$sidebar-width: 280px;
+$primary-bg: linear-gradient(135deg, #3a7bd5, #00d2ff);
+$sidebar-bg: #2c3e50;
+$card-bg: #34495e;
+$card-hover: #3d566e;
+$text-color: #ecf0f1;
+$highlight-color: #f39c12;
+$border-radius: 8px;
+$transition-speed: 0.3s;
 
+// Base styles
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     width: 100vw;
     height: 100vh;
     display: flex;
-    background: linear-gradient(to bottom, #597f89, #851717);
+    background: $primary-bg;
+    color: $text-color;
+    overflow: hidden;
 }
 
+// Sidebar styles
 .rank {
     list-style: none;
-    overflow-y: scroll;
-    background-color: #262133;
+    overflow-y: auto;
+    background-color: $sidebar-bg;
+    // width: $sidebar-width;
+    padding: 20px 10px;
+    height: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
 }
 
+// Rank item styles
 .rank-item {
     display: flex;
     flex-direction: column;
-
-    width: min-content;
-    margin: 4px;
-    background-color: black;
-    border-radius: 3px;
+    align-items: center;
+    // width: 100%;
+    margin-bottom: 12px;
+    background-color: $card-bg;
+    border-radius: $border-radius;
     user-select: none;
-    
     text-align: center;
     overflow: hidden;
+    transition: all $transition-speed ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    
+    &:hover {
+        background-color: $card-hover;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
     
     .icon {
         object-fit: contain;
-        width: auto;
-        height: 60px;
-        margin: 4px;
-        margin-top: 0;
-        padding: 4px;
+        width: 80px;
+        height: 80px;
+        margin: 12px;
+        padding: 8px;
         background-color: white;
-        border-radius: 3px;
+        border-radius: $border-radius;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
+    
     .title {
         width: 100%;
-        color: white;
-        background-color: inherit;
-        padding: 4px;
-        font-family: 'Courier New', Courier, monospace;
+        color: $text-color;
+        background-color: darken($card-bg, 10%);
+        padding: 10px;
         font-size: 16px;
+        font-weight: 500;
         text-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
+// Selected item styles
 .selected {
     position: absolute;
-    z-index: 1;
+    z-index: 10;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba($highlight-color, 0.5);
+    border: 2px solid $highlight-color;
+    
+    .title {
+        background-color: $highlight-color;
+        color: #2c3e50;
+        font-weight: bold;
+    }
 }
 
+// Dragging state
 .dragging {
     cursor: grabbing;
+    opacity: 0.9;
+    transform: scale(1.02) rotate(2deg);
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    $sidebar-width: 200px;
+    
+    .rank {
+        // width: $sidebar-width;
+    }
+    
+    .rank-item {
+        .icon {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .title {
+            font-size: 14px;
+        }
+    }
 }

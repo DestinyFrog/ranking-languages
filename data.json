@@ -12,10 +12,6 @@
         "path": "./assets/linguagens_programacao/cobol.svg"
     },
     {
-        "name": "coffeescript",
-        "path": "./assets/linguagens_programacao/coffeescript.svg"
-    },
-    {
         "name": "C++",
         "path": "./assets/linguagens_programacao/cpp.svg"
     },
@@ -128,7 +124,7 @@
         "path": "./assets/linguagens_programacao/zig.svg"
     },
     {
-        "name": "tenda 🇧🇷",
+        "name": "tenda",
         "path": "./assets/linguagens_programacao/tenda.svg",
         "link": "https://tenda.dev/"
     }
