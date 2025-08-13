@@ -58,7 +58,7 @@
 
         element.addEventListener('mousedown', startDrag);
         
-        element.addEventListener('touchstart', startDrag);
+        element.addEventListener('touchstart', touchStart);
 
         function startDrag(ev) {
             last_z_index++
@@ -97,6 +97,41 @@
 
             document.removeEventListener('touchmove', drag);
             document.removeEventListener('touchend', stopDrag);
+
+            onStopDrag(ev)
+        }
+
+        function touchStart(ev) {
+            last_z_index++
+            element.style.zIndex = last_z_index
+            isDragging = true;
+            
+            offset.x = ev.touches[0].clientX - element.getBoundingClientRect().left;
+            offset.y = ev.touches[0].clientY - element.getBoundingClientRect().top;
+            
+            document.addEventListener('touchmove', touchMove);
+            document.addEventListener('touchend', touchEnd);
+            
+            ev.preventDefault();
+            element.classList.add('dragging')
+        }
+
+       function touchMove(ev) {
+            if (!isDragging) return;
+            
+            element.style.left = `${ev.touches[0].clientX - offset.x}px`;
+            element.style.top = `${ev.touches[0].clientY - offset.y - document.body.getBoundingClientRect().top}px`;
+
+            element.classList.add('selected')
+        }
+
+        function touchEnd(ev) {
+            isDragging = false;
+            element.classList.remove('dragging')
+            element.style.cursor = 'grab';
+
+            document.removeEventListener('touchmove', touchMove);
+            document.removeEventListener('touchend', touchEnd);
 
             onStopDrag(ev)
         }
