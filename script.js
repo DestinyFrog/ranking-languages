@@ -70,9 +70,6 @@
             
             document.addEventListener('mousemove', drag);
             document.addEventListener('mouseup', stopDrag);
-
-            document.addEventListener('touchmove', drag);
-            document.addEventListener('touchend', stopDrag);
             
             ev.preventDefault();
             element.classList.add('dragging')
@@ -94,9 +91,6 @@
             
             document.removeEventListener('mousemove', drag);
             document.removeEventListener('mouseup', stopDrag);
-
-            document.removeEventListener('touchmove', drag);
-            document.removeEventListener('touchend', stopDrag);
 
             onStopDrag(ev)
         }
